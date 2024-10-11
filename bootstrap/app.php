@@ -12,7 +12,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->web(append: [
-            App\Http\Middleware\HandleInertiaRequests::class,
+            'auth.user' => App\Http\Middleware\HandleInertiaRequests::class,
+            'auth' => App\Http\Middleware\AuthMiddleware::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

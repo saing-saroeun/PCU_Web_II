@@ -21,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->app->bind('auth.user', function ($app) {
+            return $app->make(\App\Http\Middleware\HandleInertiaRequests::class);
+        });
     }
 }
