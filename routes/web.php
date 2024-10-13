@@ -26,6 +26,11 @@ Route::middleware('auth')->group(function () {
     // Admin
     Route::get('/admin/index', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/create', [App\Http\Controllers\AdminController::class, 'create'])->name('admin.create');
+
+    // Dashboard
+    Route::get('/dashboard-index', function () {
+        return inertia('Index');
+    });
 });
 
 require __DIR__ . '/auth.php';

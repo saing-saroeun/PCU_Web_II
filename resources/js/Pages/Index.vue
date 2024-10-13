@@ -1,11 +1,11 @@
 <script setup>
-
+import App from '../Layouts/App.vue';
 </script>
 
 <template>
-    <div>
+    <App>
         <p class="">This Index page</p>
-    </div>
+    </App>
 </template>
 
 <style></style>
