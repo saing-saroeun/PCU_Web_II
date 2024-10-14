@@ -5,28 +5,23 @@ import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import UserIcon from "./Icon/UserIcon.vue";
 import LockPasswordIcon from "./Icon/LockPasswordIcon.vue";
 import ArrowDownIcon from "./Icon/ArrowDownIcon.vue";
+import HeaderLogo from "./Icon/HeaderLogo.vue";
 import { computed } from "vue";
-// import SideHeader from "@Components/Master/SideHeader.vue";
-// import Search from "@Components/Master/Search.vue";
-// import Avatar from "@Components/Avatar.vue";
 
-const prop = defineProps({
+const props = defineProps({
     isCollapsed: Boolean,
     toggleSidebar: Function,
 });
-
-// const currentUser = computed(() => usePage().props.authUser);
 </script>
 
 <template>
-    <header v-show="true" class="header-height flex items-center w-full bg-primaryColor text-white">
-        <!-- <SideHeader :is-collapsed="isCollapsed" class="hidden md:block" /> -->
+    <header class="header-height flex items-center w-full bg-primaryColor text-white">
         <div class="flex justify-between items-center w-full gap-3 px-3 md:px-4">
-            <div class="inline-flex flex-shrink-0 items-center">
+            <div class="inline-flex items-center">
+                <HeaderLogo class="px-2" css-class="h-10" />
                 <button type="button" class="px-1 py-2" @click="toggleSidebar">
                     <HamburgerIcon :size="24" />
                 </button>
-                <HeaderLogo v-if="isCollapsed" class="px-2" css-class="h-10" />
             </div>
             <div class="flex justify-end items-center w-full gap-3">
                 <div class="hidden lg:block w-64">
