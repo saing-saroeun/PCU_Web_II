@@ -2,6 +2,8 @@
 import { Link, router, usePage } from "@inertiajs/vue3";
 import HamburgerIcon from "./Icon/HamburgerIcon.vue";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+import Logo from '@/Components/Logo.vue';
+import Search from '@/Components/Search.vue';
 import UserIcon from "./Icon/UserIcon.vue";
 import LockPasswordIcon from "./Icon/LockPasswordIcon.vue";
 import ArrowDownIcon from "./Icon/ArrowDownIcon.vue";
@@ -18,14 +20,17 @@ const props = defineProps({
     <header class="header-height flex items-center w-full bg-primaryColor text-white">
         <div class="flex justify-between items-center w-full gap-3 px-3 md:px-4">
             <div class="inline-flex items-center">
-                <HeaderLogo class="px-2" css-class="h-10" />
-                <button type="button" class="px-1 py-2" @click="toggleSidebar">
+                <Link :href="route('dashboard')">
+                <Logo />
+                </Link>
+
+                <!-- <button type="button" class="px-1 py-2" @click="toggleSidebar">
                     <HamburgerIcon :size="24" />
-                </button>
+                </button> -->
             </div>
             <div class="flex justify-end items-center w-full gap-3">
                 <div class="hidden lg:block w-64">
-                    <!-- <Search /> -->
+                    <Search />
                 </div>
 
                 <Menu as="div" class="relative pt-1" v-slot="{ open }">

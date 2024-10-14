@@ -13,7 +13,7 @@ const isCollapsed = computed(() => !menuStore.showMenu);
         <Header :toggle-sidebar="menuStore.toggleMenu" :is-collapsed="isCollapsed" />
         <div class="flex content-screen w-full overflow-hidden">
             <Sidebar :is-collapsed="isCollapsed" />
-            <div class="content overflow-y-auto p-2 md:p-3 h-full w-full">
+            <div class="content overflow-y-auto p-2 md:p-3 h-full w-full text-white">
                 <slot></slot>
             </div>
         </div>
