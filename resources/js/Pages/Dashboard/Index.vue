@@ -1,11 +1,11 @@
 <script setup>
-import DefaultLayout from '@/Layouts/DefaultLayout.vue';
+import DefaultLayout from '@/Layouts/Dentist/DefaultLayout.vue';
 </script>
 
 <template>
-    <DefaultLayout>
-        <p class="text-white">This Layout</p>
-    </DefaultLayout>
+  <DefaultLayout>
+    <p>This Default Layout</p>
+  </DefaultLayout>
 </template>
 
 <style></style>

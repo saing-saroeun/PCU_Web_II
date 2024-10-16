@@ -21,6 +21,7 @@
         "@headlessui/vue": "^1.7.23",
         "@inertiajs/vue3": "^1.2.0",
         "@vitejs/plugin-vue": "^5.1.4",
+        "@vueuse/core": "^11.1.0",
         "pinia": "^2.2.4"
     }
 }

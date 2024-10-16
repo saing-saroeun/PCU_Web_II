@@ -11,12 +11,38 @@ export default {
     ],
 
     theme: {
-        extend: {
+      extend: {
             fontFamily: {
-                sans: ['', ...defaultTheme.fontFamily.sans],
+                "default-sans": ["Roboto", "Hanuman", "sans-serif"],
+            },
+            fontWeight: {
+                normal: "400",
+                medium: "500",
+                bold: "700",
+            },
+            height: {
+                "38px": "38px",
+            },
+            borderWidth: {
+                1.5: "1.5px",
             },
 
-            
+            colors: {
+                primaryColor: "#24303F",
+                onFocusPrimaryColor: "#0D294F",
+                scaffoldBackground: "#F7F7F7",
+                danger: "#FF0000",
+                warning: "#FC6510",
+                focusColor: "#bcbcbc",
+                placeholderColor: "#C9C9C9",
+                whiteHover: "#F8F8F8",
+                greyColor: "#7D7D7D",
+                lightGreyColor: "#F5F7FA",
+                lightGreyHoverColor: "#E8EAED",
+                greyBorderColor: "#E5E5E5",
+                lightBlueHover: "#1C2530",
+                secondaryColor: "#EAEAEA",
+            },
         },
     },
 
