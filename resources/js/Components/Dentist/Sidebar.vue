@@ -7,21 +7,24 @@ import StockIcon from "./Icons/StockIcon.vue";
 import PaymentIcon from "./Icons/PaymentIcon.vue";
 import SettingIcon from "./Icons/SettingIcon.vue";
 import MemberIcon from "./Icons/MemberIcon.vue";
+import PatientIcon from "./Icons/PatientIcon.vue";
 import DashboardIcon from "./Icons/DashboardIcon.vue";
+import AppointmentIcon from './Icons/AppointmentIcon.vue'
 
-const menuTickets = [
-    // { title: '1.1. សំបុត្ររង់ចាំទាំងអស់' },
-    // { title: '1.2. សំបុត្រ Cockfight' },
+const menuPatient = [
+    { title: '1.1. Registration' },
+    { title: '1.2. Records' },
+    { title: '1.3. Appointment Scheduling' },
 ];
 
-const menuMembers = [
-    // { title: '2.1. Super Master' },
-    // { title: '2.2. បញ្ជីសមាជិក' },
+const menuDetists = [
+    { title: '2.1. Dentist Profiles' },
+    { title: '2.2. Schedule Management' },
 ];
 
-const menuSubAccounts = [
-    // { title: '3.1. បញ្ជី Sub Account', href: "" },
-    // { title: '3.2. ការកំណត់សិទ្ធិ', href: "" },
+const menuAppointments = [
+    { title: '3.1. Rescheduling', href: "" },
+    { title: '3.2. ការកំណត់សិទ្ធិ', href: "" },
 ];
 
 const menuReports = [
@@ -47,50 +50,51 @@ const prop = defineProps({
 
 <template>
     <aside :class="{ 'sidebar-width': true, 'sidebar-collapsed': isCollapsed }"
-        class="flex-shrink-0 h-full bg-primaryColor text-white overflow-y-auto">
+        class="flex-shrink-0 h-full bg-white text-black overflow-y-auto">
         <MenuItem :index="1" title="Dashboard" :href="route('dashboard.index')">
         <template v-slot:icon>
-            <DashboardIcon fill="white" />
+            <DashboardIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="2" title="សេចក្ដីជូនដំណឹង">
+        <MenuItem :index="6" title="Admin" :href="route('admin.index')">
         <template v-slot:icon>
-            <NotificationIcon fill="white" />
+            <RiskIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="3" title="គ្រប់គ្រងស្តុកសំបុត្រ" :items="menuTickets">
+
+        <MenuItem :index="3" title="Dentist Management" :items="menuDetist">
         <template v-slot:icon>
-            <StockIcon fill="white" />
+            <MemberIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="4" title="គ្រប់គ្រងសមាជិក" :items="menuMembers">
+        <MenuItem :index="2" title="Patients Management" :items="menuPatient">
         <template v-slot:icon>
-            <MemberIcon fill="white" />
+            <PatientIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="5" title="គណនីខាងក្រោម" :items="menuSubAccounts">
+        <MenuItem :index="4" title="Schedules">
         <template v-slot:icon>
-            <StockIcon fill="white" />
+            <StockIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="6" title="របាយការណ៍" :items="menuReports">
+        <MenuItem :index="5" title="Appointment Lists" :items="menuAppointments">
         <template v-slot:icon>
-            <ReportIcon fill="white" />
+            <AppointmentIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="7" title="គ្រប់គ្រងហានិភ័យ" :items="menuRisks">
+        <MenuItem :index="6" title="Reports" :items="menuReport">
         <template v-slot:icon>
-            <RiskIcon fill="white" />
+            <ReportIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="8" title="ការទូទាត់" href="#">
+        <MenuItem :index="7" title="Payments" href="#">
         <template v-slot:icon>
-            <PaymentIcon fill="white" />
+            <PaymentIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="9" title="ការកំណត់" :items="menuSettings">
+        <MenuItem :index="8" title="Settings" :items="menuSettings">
         <template v-slot:icon>
-            <SettingIcon fill="white" />
+            <SettingIcon fill="black" />
         </template>
         </MenuItem>
     </aside>

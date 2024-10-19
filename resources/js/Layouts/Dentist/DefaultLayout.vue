@@ -21,7 +21,7 @@ function toggleSidebar() {
             <Sidebar
                 :is-collapsed = 'isCollapsed'
             />
-            <div class="text-white content overflow-y-auto p-4 h-full w-full">
+            <div class="text-black content overflow-y-auto p-4 h-full w-full">
                 <slot></slot>
             </div>
         </div>

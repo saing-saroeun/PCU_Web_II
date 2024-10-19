@@ -2,7 +2,6 @@
 import { ref } from "vue";
 import { Link } from '@inertiajs/vue3'
 import SubMenuItem from "./SubMenuItem.vue";
-import ArrowDownIcon from "./Icons/ArrowDownIcon.vue";
 
 const activeIndex = ref(null);
 
@@ -47,7 +46,7 @@ const leave = (el) => {
     <ul>
         <li class="menu-item" :key="index">
             <div v-if="items" role="button"
-                class="flex items-center gap-3 select-none px-3 py-2 hover:bg-lightBlueHover"
+                class="flex items-center gap-3 select-none px-3 py-2 hover:bg-gray-100"
                 @click="toggleSubMenu(index)">
                 <div class="flex-none w-5">
                     <slot name="icon" />
@@ -55,11 +54,9 @@ const leave = (el) => {
                 <p class="flex-auto text-nowrap">
                     {{ title }}
                 </p>
-                <ArrowDownIcon :class="{ 'rotate-180': activeIndex === index }" class="transition-all" fill="white"
-                    :size="22" />
             </div>
             <div v-else>
-                <Link :href="href" class="flex items-center gap-3 select-none px-3 py-2 hover:bg-lightBlueHover">
+                <Link :href="href" class="flex items-center gap-3 select-none px-3 py-2 hover:bg-gray-100">
                 <div class="flex-none w-5">
                     <slot name="icon" />
                 </div>

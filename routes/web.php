@@ -27,11 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/index', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/create', [App\Http\Controllers\AdminController::class, 'create'])->name('admin.create');
 
-    // Dashboard
-    // Route::get('/dashboard-index', function () {
-    //     return inertia('Index');
-    // });
-
     Route::get('/dashboard-index',  [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 });
 
