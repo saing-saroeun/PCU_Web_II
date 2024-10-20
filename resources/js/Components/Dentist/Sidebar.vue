@@ -56,43 +56,43 @@ const prop = defineProps({
             <DashboardIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="6" title="Admin" :href="route('admin.index')">
+        <MenuItem :index="2" title="Admin" :href="route('admin.index')">
         <template v-slot:icon>
             <RiskIcon fill="black" />
         </template>
         </MenuItem>
 
-        <MenuItem :index="3" title="Dentist Management" :items="menuDetist">
+        <MenuItem :index="3" title="Dentist Management" :href="route('dentist.index')">
         <template v-slot:icon>
             <MemberIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="2" title="Patients Management" :items="menuPatient">
+        <MenuItem :index="4" title="Patients Management" :items="menuPatient">
         <template v-slot:icon>
             <PatientIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="4" title="Schedules">
+        <MenuItem :index="5" title="Schedules">
         <template v-slot:icon>
             <StockIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="5" title="Appointment Lists" :items="menuAppointments">
+        <MenuItem :index="6" title="Appointment Lists" :items="menuAppointments">
         <template v-slot:icon>
             <AppointmentIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="6" title="Reports" :items="menuReport">
+        <MenuItem :index="7" title="Reports" :items="menuReport">
         <template v-slot:icon>
             <ReportIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="7" title="Payments" href="#">
+        <MenuItem :index="8" title="Payments" href="#">
         <template v-slot:icon>
             <PaymentIcon fill="black" />
         </template>
         </MenuItem>
-        <MenuItem :index="8" title="Settings" :items="menuSettings">
+        <MenuItem :index="9" title="Settings" :items="menuSettings">
         <template v-slot:icon>
             <SettingIcon fill="black" />
         </template>

@@ -96,7 +96,7 @@ table .table-fixed,.table-auto {
         @apply bg-white border border-greyBorderColor rounded-lg;
     }
     .input-default {
-        @apply w-full h-10 block cursor-text rounded-md ps-3 pe-3 border text-black outline-none hover:bg-whiteHover focus:border-focusColor focus:bg-white placeholder-placeholderColor;
+        @apply w-full h-10 block cursor-text rounded-md ps-3 pe-3 border-none text-black outline-none hover:bg-whiteHover focus:border-focusColor focus:bg-white placeholder-placeholderColor;
     }
     .input-disabled {
         @apply disabled:bg-greyBorderColor disabled:pointer-events-none;
