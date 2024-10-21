@@ -1,15 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
-import { Link, useForm } from "@inertiajs/vue3";
+import { useForm } from "@inertiajs/vue3";
 import DefaultLayout from "@/Layouts/Dentist/DefaultLayout.vue";
 import TitlePage from "@/Components/DefaultLayout/TitlePage.vue";
-import ButtonCreated from "@/Components/DefaultLayout/ButtonCreated.vue";
-import SearchOutline from "@/Components/Dentist/Icons/SearchOutline.vue";
-import EditIcon from "@/Components/Dentist/Icons/EditIcon.vue";
-import DeleteIcon from "@/Components/Dentist/Icons/DeleteIcon.vue";
-import DetailIcon from "@/Components/Dentist/Icons/DetailIcon.vue";
-import Pagination from "@/Components/Dentist/Pagination.vue";
 
 const categories = ref({
     Profiles: [
@@ -124,7 +118,7 @@ const deleteAdmin = (id) => {
 
         <div class="w-full py-2">
             <TabGroup>
-                <TabList class="flex space-x-1 rounded-md bg-colorTableHead p-1">
+                <TabList class="inline-block space-x-1 rounded-md bg-colorTableHead p-1">
                     <Tab v-for="category in Object.keys(categories)" as="template" :key="category"
                         v-slot="{ selected }">
                         <button :class="[

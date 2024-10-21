@@ -42,7 +42,7 @@ const submit = () => {
             <div>
                 <InputLabel for="email" value="Email" />
                 <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus
-                    autocomplete="username" />
+                    autocomplete="username" placeholder="email"/>
 
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
@@ -50,7 +50,7 @@ const submit = () => {
             <div class="mt-4">
                 <InputLabel for="password" value="Password" />
                 <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
-                    autocomplete="current-password" />
+                    autocomplete="current-password" placeholder="********"/>
 
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>

@@ -45,8 +45,7 @@ const leave = (el) => {
 <template>
     <ul>
         <li class="menu-item" :key="index">
-            <div v-if="items" role="button"
-                class="flex items-center gap-3 select-none px-3 py-2 hover:bg-gray-100"
+            <div v-if="items" role="button" class="flex items-center gap-3 select-none px-3 py-2 hover:bg-gray-100"
                 @click="toggleSubMenu(index)">
                 <div class="flex-none w-5">
                     <slot name="icon" />
