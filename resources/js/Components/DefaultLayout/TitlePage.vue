@@ -6,7 +6,7 @@
 
 <template>
     <div>
-        <h1 class="inline-block rounded-full px-4 py-2 bg-gray-200">{{ title }}</h1>
+        <h1 class="inline-block rounded-full px-4 py-2 bg-gray-200 text-colorTextHeader">{{ title }}</h1>
     </div>
 </template>
 

@@ -28,7 +28,7 @@ import AppointmentIcon from '@/Components/Dentist/Icons/AppointmentIcon.vue';
         Confirmed Appointments
         <div class="flex justify-start items-start gap-2">
           <div class="w-10 h-10 flex justify-center items-center rounded-full bg-gray-100">
-            <AppointmentIcon color="blue" />
+            <AppointmentIcon color="blue" size="20" />
           </div>
           <p class="font-bold text-2xl text-black">10</p>
         </div>
@@ -40,7 +40,7 @@ import AppointmentIcon from '@/Components/Dentist/Icons/AppointmentIcon.vue';
         Prescriptions
         <div class="flex justify-start items-start gap-2">
           <div class="w-10 h-10 flex justify-center items-center rounded-full bg-gray-100">
-            <AppointmentIcon color="blue" />
+            <AppointmentIcon color="blue" size="20" />
           </div>
           <p class="font-bold text-2xl text-black">4</p>
         </div>

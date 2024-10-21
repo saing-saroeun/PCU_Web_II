@@ -46,10 +46,6 @@ const prop = defineProps({
                 </button>
             </div>
             <div class="flex justify-end items-center w-full gap-3">
-                <div class="relative h-10 w-72">
-                    <input class="input-prefix-icon" type="search" placeholder="ស្វែងរក...">
-                    <SearchOutline class="absolute left-2 top-1/2 translate-y-[-50%]" :size="18" color="#C9C9C9" />
-                </div>
                 <p class="block">Company</p>
                 <Menu as="div" class="relative pt-1" v-slot="{ open }">
                     <MenuButton class="w-auto h-full inline-flex items-center gap-1">
@@ -88,20 +84,11 @@ const prop = defineProps({
                                 គណនី
                                 </Link>
                                 </MenuItem>
-                                <MenuItem v-slot="{ active }">
-                                <Link  :class="[
-                                    active ? 'bg-lightGreyColor' : '',
-                                    'group flex w-full items-center px-3 py-2 transition-colors',
-                                ]">
-                                <LockPasswordIcon size="20" class="mr-2" />
-                                ប្តូរពាក្យសម្ងាត់
-                                </Link>
-                                </MenuItem>
                                 <hr class="my-3">
                                 <div class="px-3 pb-3">
                                     <MenuItem>
                                     <Link 
-                                        class="group flex justify-center w-full bg-lightGreyColor border border-greyBorderColor text-black rounded-md px-2 py-2 hover:bg-lightGreyHoverColor transition-colors">
+                                        class="group flex justify-center w-full bg-lightGreyColor border border-greyBorderColor text-black rounded-md px-2 py-2 hover:bg-red-500/50 transition-colors">
                                     Sign Out
                                     </Link>
                                     </MenuItem>

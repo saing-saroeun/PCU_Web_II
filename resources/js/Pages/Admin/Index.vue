@@ -67,15 +67,15 @@ const deleteAdmin = (id) => {
 <template>
   <DefaultLayout>
     <div class="flex justify-between items-center">
-      <TitlePage title="Admin" />
-      <ButtonCreated routeName="admin.create" redirect="Create" />
+      <TitlePage title="អ្នកគ្រប់គ្រង" />
+      <ButtonCreated routeName="admin.create" redirect="បង្កើត" />
     </div>
 
     <div class="py-2">
       <div class="relative h-10 w-72">
         <input
           class="w-full px-8 py-2 border-none rounded-md ring-1 focus:ring-1 ring-gray-300/50 outline-none transition-all duration-300 focus:ring-blue-300 focus:shadow-lg focus:shadow-blue-200/50 placeholder:text-gray-300"
-          type="search" placeholder="Search Admin..." />
+          type="search" placeholder="ស្វែងរកអ្នកគ្រប់គ្រង..." />
         <SearchOutline class="absolute left-2 top-1/2 translate-y-[-50%]" :size="18" color="#C9C9C9" />
       </div>
     </div>
@@ -129,7 +129,7 @@ const deleteAdmin = (id) => {
         </tbody>
       </table>
     </div>
-    
+
     <div class="bg-colorTableHead rounded-b-md flex justify-between items-center py-2 px-4">
       <h3>អ្នកគ្រប់គ្រងសរុប (3)</h3>
 

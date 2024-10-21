@@ -10,7 +10,7 @@ import DeleteIcon from "@/Components/Dentist/Icons/DeleteIcon.vue";
 import DetailIcon from "@/Components/Dentist/Icons/DetailIcon.vue";
 import Pagination from "@/Components/Dentist/Pagination.vue";
 
-const admins = [
+const dentists = [
   {
     id: 1,
         img: "https://i.pinimg.com/736x/ac/c5/30/acc5307842149c8d3818f37bd902f4de.jpg",
@@ -68,15 +68,15 @@ const deleteAdmin = (id) => {
 <template>
     <DefaultLayout>
         <div class="flex justify-between items-center">
-            <TitlePage title="Dentist" />
-            <ButtonCreated routeName="dentist.create" redirect="Create" />
+            <TitlePage title="ពេទ្យធ្មេញ" />
+            <ButtonCreated routeName="dentist.create" redirect="បង្កើត" />
         </div>
 
         <div class="py-2">
             <div class="relative h-10 w-72">
                 <input
                     class="w-full px-8 py-2 border-none rounded-md ring-1 focus:ring-1 ring-gray-300/50 outline-none transition-all duration-300 focus:ring-blue-300 focus:shadow-lg focus:shadow-blue-200/50 placeholder:text-gray-300"
-                    type="search" placeholder="Search Dentist..." />
+                    type="search" placeholder="ស្វែងរកពេទ្យធ្មេញ..." />
                 <SearchOutline class="absolute left-2 top-1/2 translate-y-[-50%]" :size="18" color="#C9C9C9" />
             </div>
         </div>
@@ -97,24 +97,24 @@ const deleteAdmin = (id) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(admin, index) in admins" :key="admin.id"
+                    <tr v-for="(dentist, index) in dentists" :key="dentist.id"
                         class="bg-white border-y-1.5 hover:bg-colorHoverTable">
                         <th scope="row" class="font-bold whitespace-nowrap">
                             {{ index + 1 }}
                         </th>
                         <td class="p-3">
-                            <img :src="admin.img" alt="Admin Image" class="w-10 h-10 object-cover rounded-full" />
+                            <img :src="dentist.img" alt="Admin Image" class="w-10 h-10 object-cover rounded-full" />
                         </td>
-                        <td class="p-3 text-black">{{ admin.name }}</td>
-                        <td class="p-3 text-black">{{ admin.displayName }}</td>
-                        <td class="p-3 text-black">{{ admin.gender }}</td>
-                        <td class="p-3 text-black">{{ admin.contact }}</td>
-                        <td class="p-3 text-black">{{ admin.email }}</td>
+                        <td class="p-3 text-black">{{ dentist.name }}</td>
+                        <td class="p-3 text-black">{{ dentist.displayName }}</td>
+                        <td class="p-3 text-black">{{ dentist.gender }}</td>
+                        <td class="p-3 text-black">{{ dentist.contact }}</td>
+                        <td class="p-3 text-black">{{ dentist.email }}</td>
                         <td class="p-3 text-black">
-                            <span v-if="admin.status == 'Active'" class="px-2 py-1 bg-green-200 rounded-full">{{
-                                admin.status }}</span>
+                            <span v-if="dentist.status == 'Active'" class="px-2 py-1 bg-green-200 rounded-full">{{
+                                dentist.status }}</span>
                             <span v-else class="px-2 py-1 bg-red-200 rounded-full">{{
-                                admin.status
+                                dentist.status
                                 }}</span>
                         </td>
                         <td class="p-3">
@@ -136,7 +136,7 @@ const deleteAdmin = (id) => {
         </div>
 
         <div class="bg-colorTableHead rounded-b-md flex justify-between items-center py-2 px-4">
-            <h3>ពេទ្យធ្មេញសរុប (3)</h3>
+            <h3>ពេទ្យធ្មេញសរុប ({{ dentists.length }})</h3>
 
             <Pagination :links="links" />
         </div>

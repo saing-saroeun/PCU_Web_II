@@ -33,6 +33,17 @@ Route::middleware('auth')->group(function () {
     Route::get('dentist/index', [App\Http\Controllers\DentistController::class, 'index'])->name('dentist.index');
     Route::get('dentist/create', [App\Http\Controllers\DentistController::class, 'create'])->name('dentist.create');
     Route::get('dentist/detail/{id}', [App\Http\Controllers\DentistController::class, 'detail'])->name('dentist.detail');
+
+    // Todo: Patients
+    Route::get('patient/index', [App\Http\Controllers\PatientController::class, 'index'])->name('patient.index');
+    Route::get('patient/create', [App\Http\Controllers\PatientController::class, 'create'])->name('patient.create');
+
+    // Todo: Record Dentist
+    Route::get('record/dentist-records', [App\Http\Controllers\RecordController::class, 'detistRecord'])->name('dentist.records');
+
+    // Todo: Appointments Dentist
+    Route::get('appointment/dentist-appointments', [App\Http\Controllers\AppointmentController::class, 'dentistAppointment'])->name('dentist.appointments');
+    Route::get('appointment/patient-appointments', [App\Http\Controllers\AppointmentController::class, 'patientAppointment'])->name('patient.appointments');
 });
 
 require __DIR__ . '/auth.php';
