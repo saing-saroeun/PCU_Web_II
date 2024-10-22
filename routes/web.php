@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
     // Todo: Patients
     Route::get('patient/index', [App\Http\Controllers\PatientController::class, 'index'])->name('patient.index');
     Route::get('patient/create', [App\Http\Controllers\PatientController::class, 'create'])->name('patient.create');
+    Route::get('patient/detail/{id}', [App\Http\Controllers\PatientController::class, 'detail'])->name('patient.detail');
 
     // Todo: Record Dentist
     Route::get('record/dentist-records', [App\Http\Controllers\RecordController::class, 'detistRecord'])->name('dentist.records');
