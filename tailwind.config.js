@@ -20,6 +20,10 @@ export default {
                 medium: "500",
                 bold: "700",
             },
+            width:{
+                '30': '30%',
+                '70': '70%',
+            },
             height: {
                 "38px": "38px",
             },
