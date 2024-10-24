@@ -22,6 +22,8 @@ import { Head } from '@inertiajs/vue3';
                     </div>
                 </div>
             </div>
+
+            <a href="https://www.youtube.com/" target="_blank">Youtube</a>
             <div class="w-full">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
