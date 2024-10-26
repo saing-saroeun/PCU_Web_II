@@ -48,21 +48,19 @@ const links = ref([
 </script>
 
 <template>
-    <div>
-        <div class="py-2">
-            <div class="relative h-10 w-72">
-                <input
-                    class="w-full px-8 py-2 border-none rounded-md ring-1 focus:ring-1 ring-gray-300/50 outline-none transition-all duration-300 focus:ring-blue-300 focus:shadow-lg focus:shadow-blue-200/50 placeholder:text-gray-300"
-                    type="search"
-                    placeholder="ស្វែងរកការណាត់ជួប..."
-                />
-                <SearchOutline
-                    class="absolute left-2 top-1/2 translate-y-[-50%]"
-                    :size="18"
-                    color="#C9C9C9"
-                />
-            </div>
-        </div>
+    <div class="relative h-10 w-72">
+        <input
+            class="w-full px-8 py-2 border-none rounded-md ring-1 focus:ring-1 ring-gray-300/50 outline-none transition-all duration-300 focus:ring-blue-300 focus:shadow-lg focus:shadow-blue-200/50 placeholder:text-gray-300"
+            type="search"
+            placeholder="ស្វែងរកការណាត់ជួប..."
+        />
+        <SearchOutline
+            class="absolute left-2 top-1/2 translate-y-[-50%]"
+            :size="18"
+            color="#C9C9C9"
+        />
+    </div>
+    <div class="mt-2">
         <table class="w-full text-center bg-colorTableHead rounded-md">
             <thead>
                 <tr>

@@ -5,6 +5,8 @@ import DefaultLayout from "@/Layouts/Dentist/DefaultLayout.vue";
 import TitlePage from "@/Components/DefaultLayout/TitlePage.vue";
 import Appointment from "@/Components/Appointment.vue";
 import Schedule from "@/Components/Schedule.vue";
+import Prescription from "@/Components/Prescription.vue";
+import Treatment from "@/Components/Treatment.vue";
 
 const currentTab = ref("ការណាត់ជួប");
 
@@ -147,14 +149,10 @@ const deleteAdmin = (id) => {
                         <Schedule />
                     </template>
                     <template v-if="currentTab === 'វេជ្ជបញ្ជា'">
-                        <div class="bg-white rounded-md p-2">
-                            <p>This prescriptions</p>
-                        </div>
+                        <Prescription />
                     </template>
                     <template v-if="currentTab === 'ការព្យាបាល'">
-                        <div class="bg-white rounded-md p-2">
-                            <p>This Treatment</p>
-                        </div>
+                        <Treatment />
                     </template>
                 </div>
             </div>
