@@ -9,12 +9,11 @@ import EditIcon from "@/Components/Dentist/Icons/EditIcon.vue";
 import DeleteIcon from "@/Components/Dentist/Icons/DeleteIcon.vue";
 import Pagination from "@/Components/Dentist/Pagination.vue";
 
-// const props = defineProps({
-//     admins: Object
-// })
+const props = defineProps({
+    admins: Object
+})
 
-// console.log(props.admins)
-console.log('Hello')
+console.log(props.admins)
 
 const admins = ref([
     {

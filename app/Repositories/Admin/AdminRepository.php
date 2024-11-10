@@ -8,8 +8,7 @@ class AdminRepository implements IAdminRepository
 {
     public function lists()
     {
-        $admins = DB::table('admins')->get();
-        return $admins;
+        return DB::table('admins')->get();
     }
 
     public function store(array $data)
