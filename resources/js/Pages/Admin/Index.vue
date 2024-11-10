@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { Link, useForm } from "@inertiajs/vue3";
+import { debounce } from "lodash";
 import DefaultLayout from "@/Layouts/Dentist/DefaultLayout.vue";
 import TitlePage from "@/Components/DefaultLayout/TitlePage.vue";
 import ButtonCreated from "@/Components/DefaultLayout/ButtonCreated.vue";
@@ -10,57 +11,8 @@ import DeleteIcon from "@/Components/Dentist/Icons/DeleteIcon.vue";
 import Pagination from "@/Components/Dentist/Pagination.vue";
 
 const props = defineProps({
-    admins: Object
+    admins: Array,
 })
-
-console.log(props.admins)
-
-const admins = ref([
-    {
-        id: 1,
-        img: "https://i.pinimg.com/736x/02/6c/40/026c400b20b775e4c0428974663af0e5.jpg",
-        name: "John Doe",
-        displayName: "Admin JD",
-        address: "123 Admin St, Phnom Penh",
-        contact: "012 345 678",
-        email: "john@example.com",
-        status: "Active",
-    },
-    {
-        id: 2,
-        img: "https://i.pinimg.com/736x/ca/a7/1f/caa71f88293ef2dd6901e32ac4bc566a.jpg",
-        name: "Jane Smith",
-        displayName: "Admin JS",
-        address: "456 Admin Ave, Siem Reap",
-        contact: "011 234 567",
-        email: "jane@example.com",
-        status: "Inactive",
-    },
-    {
-        id: 3,
-        img: "https://i.pinimg.com/736x/68/ae/33/68ae332372b9850b9961e31aac6855be.jpg",
-        name: "Samrith Sok",
-        displayName: "Admin SS",
-        address: "789 Admin Blvd, Sihanoukville",
-        contact: "092 111 222",
-        email: "samrith@example.com",
-        status: "Active",
-    },
-]);
-
-const links = ref([
-    { url: null, label: "&laquo; Previous", active: false },
-    { url: "http://example.com?page=1", label: "1", active: true },
-    { url: "http://example.com?page=2", label: "2", active: false },
-    { url: "http://example.com?page=3", label: "3", active: false },
-    { url: "http://example.com?page=4", label: "4", active: false },
-    { url: "http://example.com?page=5", label: "5", active: false },
-    { url: "http://example.com?page=6", label: "&raquo;", active: false },
-]);
-
-const form = useForm({
-    adminId: null,
-});
 
 const deleteAdmin = (id) => {
     if (confirm("Are you sure you want to delete this admin?", id)) {
@@ -68,6 +20,14 @@ const deleteAdmin = (id) => {
         form.delete(route("admin.destroy", id));
     }
 };
+
+const sampleLinks = [
+    { url: '?page=1', label: '1', active: true },
+    { url: '?page=2', label: '2', active: false },
+    { url: '?page=3', label: '3', active: false },
+    { url: '?page=4', label: '4', active: false },
+    { url: '?page=2', label: 'pagination.next', active: false }
+];
 </script>
 
 <template>
@@ -97,12 +57,11 @@ const deleteAdmin = (id) => {
                 <thead>
                     <tr>
                         <th scope="col" class="p-3">#</th>
-                        <th scope="col" class="p-3">រូបភាព</th>
-                        <th scope="col" class="p-3">ឈ្មោះ</th>
-                        <th scope="col" class="p-3">ឈ្មោះបង្ហាញ</th>
-                        <th scope="col" class="p-3">អាសយដ្ឋាន</th>
-                        <th scope="col" class="p-3">លេខទំនាក់ទំនង</th>
-                        <th scope="col" class="p-3">អ៊ីមែល</th>
+                        <th scope="col" class="p-3 text-nowrap">រូបភាព</th>
+                        <th scope="col" class="p-3 text-start">ឈ្មោះ</th>
+                        <th scope="col" class="p-3 text-start">អាសយដ្ឋាន</th>
+                        <th scope="col" class="p-3 text-start">លេខទំនាក់ទំនង</th>
+                        <th scope="col" class="p-3 text-start">អ៊ីមែល</th>
                         <th scope="col" class="p-3">ស្ថានភាព</th>
                         <th scope="col" class="p-3">សកម្មភាព</th>
                     </tr>
@@ -118,24 +77,23 @@ const deleteAdmin = (id) => {
                         </th>
                         <td class="p-3">
                             <img
-                                :src="admin.img"
+                                :src="admin.image"
                                 alt="Admin Image"
                                 class="w-10 h-10 object-cover rounded-full"
                             />
                         </td>
-                        <td class="p-3 text-black">{{ admin.name }}</td>
-                        <td class="p-3 text-black">{{ admin.displayName }}</td>
-                        <td class="p-3 text-black">{{ admin.address }}</td>
-                        <td class="p-3 text-black">{{ admin.contact }}</td>
-                        <td class="p-3 text-black">{{ admin.email }}</td>
+                        <td class="p-3 text-black text-start">{{ admin.full_name }}</td>
+                        <td class="p-3 text-black text-start">{{ admin.address }}</td>
+                        <td class="p-3 text-black text-start">{{ admin.tel_phone }}</td>
+                        <td class="p-3 text-black text-start">{{ admin.email }}</td>
                         <td class="p-3 text-black">
                             <span
-                                v-if="admin.status == 'Active'"
+                                v-if="admin.status == 'active'"
                                 class="px-2 py-1 bg-green-200 rounded-full"
                                 >{{ admin.status }}</span
                             >
                             <span
-                                v-else
+                               v-if="admin.status == 'inactive'"
                                 class="px-2 py-1 bg-red-200 rounded-full"
                                 >{{ admin.status }}</span
                             >
@@ -164,9 +122,9 @@ const deleteAdmin = (id) => {
         <div
             class="bg-colorTableHead rounded-b-md flex justify-between items-center py-2 px-4"
         >
-            <h3>អ្នកគ្រប់គ្រងសរុប (3)</h3>
+            <h3>អ្នកគ្រប់គ្រងសរុប ({{ admins.length }})</h3>
 
-            <Pagination :links="links" />
+            <Pagination :links="sampleLinks" />
         </div>
     </DefaultLayout>
 </template>
