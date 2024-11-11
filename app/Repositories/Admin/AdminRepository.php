@@ -7,10 +7,15 @@ use Illuminate\Support\Facades\DB;
 
 class AdminRepository implements IAdminRepository
 {
-    public function lists($search = null)
+    public function lists(string $search = null)
     {
-        return DB::table('admins')->paginate(Pagination::PAGINATE);
+        return DB::table('admins as a')
+            ->select('a.*')
+            ->groupBy('a.id')
+            ->orderBy('a.id')
+            ->paginate(Pagination::PAGINATE);
     }
+
 
     public function store(array $data)
     {

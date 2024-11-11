@@ -4,7 +4,7 @@ namespace App\Repositories\Admin;
 
 interface IAdminRepository
 {
-    public function lists($search = null);
+    public function lists(string $search = null);
 
     public function store(array $data);
 

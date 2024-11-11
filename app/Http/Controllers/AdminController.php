@@ -17,8 +17,9 @@ class AdminController extends Controller
     public function index()
     {
         $admin = $this->adminRepository->lists();
+
         return inertia('Admin/Index', [
-            'admins' => $admin->items(),
+            "admins" => $admin->items(),
         ]);
     }
 
