@@ -30,7 +30,7 @@ import SelectGender from "@/Components/Dentist/SelectGender.vue";
           <div class="w-full grid grid-cols-2 gap-3">
             <div class="w-full flex flex-col justify-start items-start gap-1">
               <label>Birthdate <span class="text-red-500">*</span></label>
-              <DatePicker />
+              <DatePicker class="w-full"/>
             </div>
 
             <div class="w-full flex flex-col justify-start items-start gap-1">

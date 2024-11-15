@@ -2,7 +2,6 @@
 
 namespace App\Repositories\Admin;
 
-use App\Models\Admin;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,18 +23,19 @@ class AdminRepository implements IAdminRepository
 
     public function store(array $data)
     {
-        $admin  = new Admin();
-        $admin->full_name = $data['full_name'];
-        $admin->email = $data['email'];
-        $admin->tel_phone = $data['tel_phone'];
-        $admin->address = $data['address'];
-        $admin->image = $data['image'];
-        $admin->status = $data['status'];
-        $admin->save();
+        $insertData = [
+            'full_name' => $data['full_name'],
+            'email' => $data['email'],
+            'tel_phone' => $data['tel_phone'] ?? null,
+            'address' => $data['address'] ?? null,
+            'image' => $data['image'] ?? null,
+            'status' => $data['status'],
+            'password' => Hash::make($data['password']),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
 
-
-        dd($admin);
-        return $admin;
+        return DB::table('admins')->create($insertData);
     }
 
     public function edit($id)
