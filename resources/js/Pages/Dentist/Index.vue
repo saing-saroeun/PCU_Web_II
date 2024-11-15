@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { Link, useForm } from "@inertiajs/vue3";
-import DefaultLayout from "@/Layouts/Dentist/DefaultLayout.vue";
+import DefaultLayout from "@/Layouts/DefaultLayout.vue";
 import TitlePage from "@/Components/DefaultLayout/TitlePage.vue";
 import ButtonCreated from "@/Components/DefaultLayout/ButtonCreated.vue";
 import SearchOutline from "@/Components/Dentist/Icons/SearchOutline.vue";

@@ -1,19 +1,33 @@
 <script setup>
-import Header from '@/Components/Dashboard/Header.vue';
-// import SidebarArea from '@/components/Sidebar/SidebarArea.vue' // Side Area
+import {ref} from "vue";
+import Header from "@/Components/Dentist/Header.vue";
+import Sidebar from "@/Components/Dentist/Sidebar.vue";
+
+const isCollapsed = ref(false);
+
+function toggleSidebar() {
+    isCollapsed.value = !isCollapsed.value;
+}
+
 </script>
 
 <template>
-  <div class="flex h-screen overflow-hidden">
-    <!-- <SidebarArea /> -->
-
-    <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-      <Header />
-      <main>
-        <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-          <slot></slot>
+    <div class="admin-layout font-default-sans">
+        <Header
+            :toggle-sidebar="toggleSidebar"
+            :is-collapsed = 'isCollapsed'
+        />
+        <div class="flex content-screen">
+            <Sidebar
+                :is-collapsed = 'isCollapsed'
+            />
+            <div class="text-black content overflow-y-auto p-2 h-full w-full">
+                <slot></slot>
+            </div>
         </div>
-      </main>
     </div>
-  </div>
 </template>
+
+<style scoped>
+
+</style>

@@ -1,6 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import DefaultLayout from '@/Layouts/Dentist/DefaultLayout.vue';
+import DefaultLayout from '@/Layouts/DefaultLayout.vue';
 import TitleHeader from '@/Components/DefaultLayout/TitlePage.vue';
 import PatientIcon from '@/Components/Dentist/Icons/PatientIcon.vue';
 import AppointmentIcon from '@/Components/Dentist/Icons/AppointmentIcon.vue';

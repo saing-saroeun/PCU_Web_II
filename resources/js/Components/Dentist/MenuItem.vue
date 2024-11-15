@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { Link } from '@inertiajs/vue3'
 import SubMenuItem from "./SubMenuItem.vue";
 import ArrowDownIcon from "./Icons/ArrowDownIcon.vue";
@@ -16,6 +16,9 @@ const props = defineProps({
     items: {
         type: Array,
         required: false,
+    },
+    active: {
+        type: Boolean
     },
 })
 
@@ -41,28 +44,33 @@ const leave = (el) => {
     el.style.opacity = '0';
 };
 
+const classes = computed(() =>
+    props.active
+        ? 'bg-gray-100'
+        : '',
+);
 </script>
 
 <template>
+    <h1></h1>
+
     <ul>
         <li class="menu-item" :key="index">
-            <div v-if="items" role="button" class="flex items-center gap-3 select-none px-3 py-2 hover:bg-gray-100"
-                @click="toggleSubMenu(index)">
+            <div v-if="items" role="button" :class="classes" 
+                class="flex items-center gap-3 select-none px-3 py-2 hover:bg-gray-100" @click="toggleSubMenu(index)">
                 <div class="flex-none w-5">
                     <slot name="icon" />
                 </div>
                 <p class="flex-auto text-nowrap">
                     {{ title }}
                 </p>
-                <ArrowDownIcon
-                    :class="{ 'rotate-180' : activeIndex === index }"
-                    class="transition-all"
-                    fill="black"
-                    :size="22"
-                />
+                <ArrowDownIcon :class="{ 'rotate-180': activeIndex === index }" class="transition-all" fill="black"
+                    :size="22" />
             </div>
+
             <div v-else>
-                <Link :href="href" class="flex items-center gap-3 select-none px-3 py-2 hover:bg-gray-100">
+                <Link :href="href" :class="classes"
+                    class="flex items-center gap-3 select-none px-3 py-2 hover:bg-gray-100">
                 <div class="flex-none w-5">
                     <slot name="icon" />
                 </div>
@@ -74,7 +82,7 @@ const leave = (el) => {
             <transition name="expand-collapse" @enter="enter" @leave="leave">
                 <ul v-show="activeIndex === index" class="sub-menu ps-8 pb-0">
                     <SubMenuItem v-for="(item, subIndex) in items" :title="item.title" :href="item.href"
-                        :sub-index="subIndex" />
+                        :active="item.active" :sub-index="subIndex" />
                 </ul>
             </transition>
         </li>

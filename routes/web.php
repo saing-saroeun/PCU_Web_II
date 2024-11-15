@@ -19,15 +19,21 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    // Todo: Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // Todo: Dashbaord
     Route::get('/dashboard-index',  [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 
     // Todo: Admin
     Route::get('/admin/index', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/create', [App\Http\Controllers\AdminController::class, 'create'])->name('admin.create');
+    Route::post('/admin/store', [App\Http\Controllers\AdminController::class, 'store'])->name('admin.store');
+    Route::get('/admin/edit/{id}', [App\Http\Controllers\AdminController::class, 'edit'])->name('admin.edit');
+    Route::put('/admin/update/{id}', [App\Http\Controllers\AdminController::class, 'update'])->name('admin.update');
+    Route::delete('/admin/delete/{id}', [App\Http\Controllers\AdminController::class, 'destroy'])->name('admin.destroy');
 
     // Todo: Dentist
     Route::get('dentist/index', [App\Http\Controllers\DentistController::class, 'index'])->name('dentist.index');

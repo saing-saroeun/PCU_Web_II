@@ -1,5 +1,5 @@
 <script setup>
-import DefaultLayout from "@/Layouts/Dentist/DefaultLayout.vue";
+import DefaultLayout from "@/Layouts/DefaultLayout.vue";
 import TitlePage from "@/Components/DefaultLayout/TitlePage.vue";
 import DatePicker from "@/Components/Dentist/DatePicker.vue";
 import SelectGender from "@/Components/Dentist/SelectGender.vue";

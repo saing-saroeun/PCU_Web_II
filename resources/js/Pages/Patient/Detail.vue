@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useForm } from "@inertiajs/vue3";
-import DefaultLayout from "@/Layouts/Dentist/DefaultLayout.vue";
+import DefaultLayout from "@/Layouts/DefaultLayout.vue";
 import TitlePage from "@/Components/DefaultLayout/TitlePage.vue";
 import Prescription from "@/Components/Patient/Prescription.vue";
 import Appointment from "@/Components/Patient/Appointment.vue";

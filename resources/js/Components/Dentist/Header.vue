@@ -1,31 +1,9 @@
 <script setup>
-import { Link, usePage } from "@inertiajs/vue3";
+import { Link } from "@inertiajs/vue3";
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import { ref } from "vue";
-import HamburgerIcon from "./Icons/HamburgerIcon.vue";
-import SearchOutline from "./Icons/SearchOutline.vue";
 import UserIcon from "./Icons/UserIcon.vue";
-import LockPasswordIcon from "./Icons/LockPasswordIcon.vue";
-import ListSelectBox from "./SelectOptions.vue";
+import HamburgerIcon from "./Icons/HamburgerIcon.vue";
 import ArrowDownIcon from "./Icons/ArrowDownIcon.vue";
-
-const timeZone = [
-    { label: 'GMT-4 (System Time)' },
-    { label: 'GMT+7' },
-    { label: 'GMT+8' },
-    { label: 'GMT+9' },
-    { label: 'GMT+11' },
-]
-
-const languages = [
-    { label: 'English', image: '/assets/admin/flags/england-flag.png', locale: 'en' },
-    { label: 'Khmer', image: '/assets/admin/flags/cambodia-flag.png', locale: 'km' },
-    { label: 'Thailand', image: '/assets/admin/flags/thailand-flag.png', locale: 'th' },
-    { label: 'Vietnam', image: '/assets/admin/flags/vietnam-flag.png', locale: 'vi' },
-];
-
-const selectedLanguage = ref(languages.find(language => language.locale === usePage().props.locale));
-const selectedItem = ref(timeZone[0]);
 
 const prop = defineProps({
     isCollapsed: Boolean,
@@ -45,6 +23,7 @@ const prop = defineProps({
                     <HamburgerIcon :size="24" />
                 </button>
             </div>
+            
             <div class="flex justify-end items-center w-full gap-3">
                 <p class="block">Company</p>
                 <Menu as="div" class="relative pt-1" v-slot="{ open }">
