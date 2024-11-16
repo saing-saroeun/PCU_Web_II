@@ -1,11 +1,10 @@
 <script setup>
+import { Head, useForm } from '@inertiajs/vue3';
 import Checkbox from '@/Components/Checkbox.vue';
-import GuestLayout from '@/Layouts/GuestLayout.vue';
+import TextInput from '@/Components/TextInput.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
 
 defineProps({
     canResetPassword: {
@@ -30,19 +29,18 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
+    <div class="h-screen w-screen flex justify-center items-center">
 
         <Head title="Log in" />
-
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit">
+        <form @submit.prevent="submit" class="w-1/4">
             <div>
                 <InputLabel for="email" value="Email" />
                 <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus
-                    autocomplete="username" placeholder="email"/>
+                    autocomplete="username" placeholder="email" />
 
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
@@ -50,7 +48,7 @@ const submit = () => {
             <div class="mt-4">
                 <InputLabel for="password" value="Password" />
                 <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
-                    autocomplete="current-password" placeholder="********"/>
+                    autocomplete="current-password" placeholder="********" />
 
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
@@ -63,15 +61,10 @@ const submit = () => {
             </div>
 
             <div class="mt-4 flex items-center justify-center">
-                <!-- <Link v-if="canResetPassword" :href="route('password.request')"
-                    class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                Forgot your password?
-                </Link> -->
-
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </PrimaryButton>
             </div>
         </form>
-    </GuestLayout>
+    </div>
 </template>
